@@ -1,6 +1,6 @@
 import numpy as np
-def load_data(path):
-    raw_data = open(path, 'r').readlines()[1:]   # specific to the data i have
+def load_data(path, batch_size):
+    raw_data = open(path, 'r').readlines()[1:batch_size]   # specific to the data i have
     visited = []
     for i in raw_data:
         if i not in visited:
@@ -18,8 +18,8 @@ def get_data(path, batch_size: int = 32) -> np.ndarray:
 
     return: numpy array of shape -> (batch_size, 10)
     """
-    data = load_data(path)
-    return filter1(data[:batch_size])
+    data = load_data(path, batch_size)
+    return filter1(data)
 
 if __name__ == "__main__":
 
