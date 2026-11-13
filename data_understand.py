@@ -1,3 +1,4 @@
+import numpy as np
 def load_data(path):
     raw_data = open(path, 'r').readlines()[1:]   # specific to the data i have
     visited = []
@@ -10,8 +11,17 @@ def filter1(data):
     # filter the data
     return np.array([i[:-1].split(',') for i in data], dtype=np.float32)
 
+def get_data(path, batch_size: int = 32) -> np.ndarray:
+    """
+    path: path to dataset
+    batch_size: how many examples you want
+
+    return: numpy array of shape -> (batch_size, 10)
+    """
+    data = load_data(path)
+    return filter1(data[:batch_size])
+
 if __name__ == "__main__":
-    import numpy as np
 
     raw_data = load_data("/home/aditya0oo0/.cache/kagglehub/datasets/elikplim/eergy-efficiency-dataset/versions/1/ENB2012_data.csv")
     data = filter1(raw_data)
