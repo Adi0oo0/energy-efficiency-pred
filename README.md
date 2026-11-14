@@ -51,8 +51,8 @@ I have normalized the data columns wherever `data>1`
 
 # Best Val:
 
-    Training Loss: 2.5406
-    Eval loss: 2.4900
+    Training Loss: 0.25406
+    Eval loss: 0.29400
 
 # [REMARK]
 No AI at any point of time has been used for anything except for one time only to realize that i forgot 
